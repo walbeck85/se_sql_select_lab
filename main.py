@@ -58,7 +58,10 @@ SELECT SUBSTR(jobTitle, 1, 2) AS short_title FROM employees
 
 # STEP 8
 # Replace None with your code
-sum_total_price = None
+sum_total_price = pd.read_sql("""
+SELECT SUM(ROUND(priceEach * quantityOrdered)) AS total_price
+FROM orderDetails
+""", conn)['total_price']
 
 # STEP 9
 # Replace None with your code
