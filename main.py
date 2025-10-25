@@ -25,15 +25,30 @@ SELECT lastName, employeeNumber FROM employees
 
 # STEP 4
 # Replace None with your code
-df_alias = None
+df_alias = pd.read_sql("""
+SELECT lastName, employeeNumber AS ID FROM employees
+""", conn)
 
 # STEP 5
 # Replace None with your code
-df_executive = None
+df_executive = pd.read_sql("""
+SELECT 
+    employeeNumber,
+    lastName,
+    jobTitle,
+    CASE 
+        WHEN jobTitle = 'President' OR jobTitle = 'VP Sales' OR jobTitle = 'VP Marketing'
+        THEN 'Executive'
+        ELSE 'Not Executive'
+    END AS role
+FROM employees
+""", conn)
 
 # STEP 6
 # Replace None with your code
-df_name_length = None
+df_name_length = pd.read_sql("""
+SELECT LENGTH(lastName) AS name_length FROM employees
+""", conn)
 
 # STEP 7
 # Replace None with your code
