@@ -10,18 +10,18 @@ print("---------------------Employee Data---------------------")
 print(employee_data)
 print("-------------------End Employee Data-------------------")
 
-# STEP 1B
-# Connect to the database
-conn = None
-
 
 # STEP 2
 # Replace None with your code
-df_first_five = None
+df_first_five = pd.read_sql("""
+SELECT employeeNumber, lastName FROM employees
+""", conn)
 
 # STEP 3
 # Replace None with your code
-df_five_reverse = None
+df_five_reverse = pd.read_sql("""
+SELECT lastName, employeeNumber FROM employees
+""", conn)
 
 # STEP 4
 # Replace None with your code
